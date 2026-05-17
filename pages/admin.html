@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Administración — MishiMenu</title>
+  <meta name="description" content="Gestión del equipo, backups, actualizaciones y solución de problemas en MishiMenu." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --green: #059669; --green-dark: #047857; --green-pale: #D1FAE5;
+      --gray-50: #F9FAFB; --gray-100: #F3F4F6; --gray-200: #E5E7EB;
+      --gray-400: #9CA3AF; --gray-600: #4B5563; --gray-700: #374151;
+      --gray-800: #1F2937; --gray-900: #111827; --white: #FFFFFF; --radius: 12px;
+      --blue: #2563EB; --blue-pale: #EFF6FF;
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', sans-serif; color: var(--gray-800); background: var(--white); line-height: 1.6; }
+    nav { position: sticky; top: 0; z-index: 100; background: rgba(255,255,255,0.95); backdrop-filter: blur(8px); border-bottom: 1px solid var(--gray-200); }
+    .nav-inner { padding: 0 2rem; height: 60px; display: flex; align-items: center; justify-content: space-between; }
+    .nav-brand { display: flex; align-items: center; gap: 10px; text-decoration: none; flex-shrink: 0; }
+    .nav-brand .brand-icon { font-size: 1.5rem; line-height: 1; }
+    .nav-brand span { font-size: 1.15rem; font-weight: 700; color: var(--green); }
+    .nav-links { display: flex; align-items: center; gap: 2rem; }
+    .nav-links a { text-decoration: none; font-size: 0.875rem; font-weight: 500; color: var(--gray-600); transition: color 0.15s; }
+    .nav-links a:hover { color: var(--gray-900); }
+    .nav-links a.active { font-weight: 700; color: var(--green); }
+    .nav-hamburger { display: none; background: none; border: none; cursor: pointer; padding: 6px; color: var(--gray-800); flex-direction: column; gap: 5px; align-items: center; justify-content: center; }
+    .nav-hamburger span { display: block; width: 22px; height: 2px; background: currentColor; border-radius: 2px; transition: transform 0.2s, opacity 0.2s; }
+    .nav-hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .nav-hamburger.open span:nth-child(2) { opacity: 0; }
+    .nav-hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+    .nav-mobile { display: none; flex-direction: column; background: var(--white); border-top: 1px solid var(--gray-200); padding: 1rem 1.5rem 1.25rem; gap: 0; }
+    .nav-mobile.open { display: flex; }
+    .nav-mobile a { text-decoration: none; font-size: 0.95rem; font-weight: 500; color: var(--gray-700); padding: 0.7rem 0; border-bottom: 1px solid var(--gray-100); transition: color 0.15s; }
+    .nav-mobile a.active { color: var(--green); font-weight: 700; }
+    .nav-mobile a:last-of-type { border-bottom: none; }
+    .nav-mobile a:hover { color: var(--green); }
+    .nav-mobile .btn { margin-top: 0.75rem; justify-content: center; width: 100%; }
+    .btn { display: inline-flex; align-items: center; gap: 6px; padding: 0.5rem 1.25rem; border-radius: 8px; font-size: 0.875rem; font-weight: 600; text-decoration: none; transition: all 0.15s; }
+    .btn-primary { background: var(--green); color: var(--white); }
+    .btn-primary:hover { background: var(--green-dark); }
+    .page-header { background: linear-gradient(160deg, var(--green-pale) 0%, var(--white) 60%); padding: 4rem 2rem 3rem; text-align: center; }
+    .page-header .badge { display: inline-flex; align-items: center; gap: 6px; background: var(--green-pale); border: 1px solid #05996960; color: var(--green-dark); font-size: 0.8rem; font-weight: 600; padding: 4px 12px; border-radius: 999px; margin-bottom: 1.25rem; }
+    .page-header h1 { font-size: clamp(1.75rem, 4vw, 2.75rem); font-weight: 800; color: var(--gray-900); line-height: 1.2; margin-bottom: 1rem; }
+    .page-header p { font-size: 1.05rem; color: var(--gray-600); max-width: 540px; margin: 0 auto; }
+    .toc-bar { background: var(--gray-50); border-bottom: 1px solid var(--gray-200); padding: 0 2rem; overflow-x: auto; white-space: nowrap; }
+    .toc-bar ul { display: inline-flex; list-style: none; gap: 0; max-width: 1100px; margin: 0 auto; }
+    .toc-bar ul li a { display: inline-block; padding: 1rem 1.25rem; font-size: 0.875rem; font-weight: 500; color: var(--gray-600); text-decoration: none; border-bottom: 2px solid transparent; transition: color 0.15s, border-color 0.15s; }
+    .toc-bar ul li a:hover { color: var(--gray-900); border-bottom-color: var(--gray-300); }
+    .toc-bar ul li a.active { color: var(--green); border-bottom-color: var(--green); font-weight: 600; }
+    .page-body { max-width: 860px; margin: 0 auto; padding: 4rem 2rem 6rem; }
+    .doc-section { margin-bottom: 5rem; scroll-margin-top: 80px; }
+    .doc-section h2 { font-size: clamp(1.35rem, 2.5vw, 1.85rem); font-weight: 800; color: var(--gray-900); line-height: 1.2; margin-bottom: 0.75rem; }
+    .doc-section h3 { font-size: 1.1rem; font-weight: 700; color: var(--gray-900); margin: 2rem 0 0.5rem; }
+    .doc-section p { font-size: 0.975rem; color: var(--gray-600); line-height: 1.7; margin-bottom: 0.75rem; }
+    .code-wrap { background: #0D1117; border: 1px solid #30363D; border-radius: var(--radius); padding: 1.25rem 1.5rem; margin-top: 0.75rem; overflow-x: auto; }
+    .code-wrap pre { font-family: 'JetBrains Mono', monospace; font-size: 0.82rem; line-height: 1.75; color: #E6EDF3; white-space: pre; }
+    .kw { color: var(--green); } .cm { color: #8B949E; } .st { color: #A5D6FF; }
+    .callout { display: flex; gap: 0.75rem; background: var(--green-pale); border: 1px solid #6EE7B740; border-left: 3px solid var(--green); border-radius: 0 var(--radius) var(--radius) 0; padding: 1rem 1.25rem; margin-top: 1.25rem; font-size: 0.875rem; color: var(--gray-700); line-height: 1.6; }
+    .callout-icon { font-size: 1rem; flex-shrink: 0; margin-top: 1px; }
+    .callout-info { background: var(--blue-pale); border-color: #BFDBFE; border-left-color: var(--blue); }
+    .callout-warn { background: #FFFBEB; border-color: #FDE68A; border-left-color: #D97706; }
+    .callout-danger { background: #FEF2F2; border-color: #FECACA; border-left-color: #DC2626; }
+    .border-table { width: 100%; border-collapse: collapse; margin-top: 1.25rem; font-size: 0.875rem; }
+    .border-table th { background: var(--gray-50); padding: 0.6rem 1rem; text-align: left; font-weight: 600; border-bottom: 2px solid var(--gray-200); }
+    .border-table td { padding: 0.6rem 1rem; border-bottom: 1px solid var(--gray-100); color: var(--gray-700); vertical-align: top; }
+    .border-table tr:last-child td { border-bottom: none; }
+    .border-table code { font-family: 'JetBrains Mono', monospace; font-size: 0.8rem; background: var(--gray-100); padding: 1px 5px; border-radius: 4px; }
+    .quick-ref { background: var(--gray-900); border-radius: var(--radius); padding: 2rem; margin-top: 1.5rem; }
+    .quick-ref h3 { font-size: 1rem; font-weight: 700; color: var(--green); margin-bottom: 1.25rem; }
+    .cmd-row { display: flex; align-items: baseline; gap: 1rem; padding: 0.6rem 0; border-bottom: 1px solid #30363D; }
+    .cmd-row:last-child { border-bottom: none; }
+    .cmd-label { font-size: 0.8rem; font-weight: 600; color: #8B949E; min-width: 160px; flex-shrink: 0; }
+    .cmd-code { font-family: 'JetBrains Mono', monospace; font-size: 0.82rem; color: #A5D6FF; }
+    .role-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px,1fr)); gap: 1rem; margin-top: 1.25rem; }
+    .role-card { background: var(--gray-50); border: 1px solid var(--gray-200); border-radius: var(--radius); padding: 1.25rem; }
+    .role-card h4 { font-size: 0.9rem; font-weight: 700; margin-bottom: 0.4rem; }
+    .role-card p { font-size: 0.83rem; color: var(--gray-600); line-height: 1.55; }
+    .steps-list { counter-reset: step; list-style: none; display: flex; flex-direction: column; gap: 0.75rem; margin-top: 1rem; }
+    .steps-list li { counter-increment: step; display: flex; gap: 0.75rem; font-size: 0.9rem; color: var(--gray-700); }
+    .steps-list li::before { content: counter(step); width: 24px; height: 24px; border-radius: 50%; background: var(--green); color: var(--white); font-size: 0.75rem; font-weight: 700; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 2px; }
+    .divider { border: none; border-top: 1px solid var(--gray-200); margin: 4rem 0; }
+    .ts-section { border: 1px solid var(--gray-200); border-radius: var(--radius); padding: 1.5rem; margin-top: 1.25rem; }
+    .ts-section h4 { font-size: 1rem; font-weight: 700; margin-bottom: 0.75rem; }
+    .ts-section p { font-size: 0.875rem; color: var(--gray-600); line-height: 1.65; margin-bottom: 0.5rem; }
+    footer { background: var(--gray-900); padding: 3rem 2rem; text-align: center; }
+    footer .footer-brand { display: flex; align-items: center; gap: 10px; justify-content: center; margin-bottom: 1rem; }
+    footer .footer-brand .brand-icon { font-size: 1.5rem; }
+    footer .footer-brand span { font-size: 1rem; font-weight: 700; color: var(--green); }
+    footer p { font-size: 0.8rem; color: var(--gray-400); margin-top: 0.5rem; }
+    footer nav { margin-top: 1.5rem; display: flex; gap: 1.5rem; justify-content: center; flex-wrap: wrap; }
+    footer nav a { font-size: 0.8rem; color: var(--gray-400); text-decoration: none; }
+    footer nav a:hover { color: var(--white); }
+    @media (max-width: 768px) { .nav-inner { padding: 0 1.25rem; } .nav-links { display: none; } .nav-hamburger { display: flex; } .page-header { padding: 3rem 1.25rem 2rem; } .page-body { padding: 2.5rem 1.25rem 4rem; } }
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a href="../index.html" class="nav-brand"><span class="brand-icon">🍽️</span><span>MishiMenu</span></a>
+    <div class="nav-links">
+      <a href="../index.html#features">Funciones</a>
+      <a href="install.html">Instalación</a>
+      <a href="daily-use.html">Uso diario</a>
+      <a href="admin.html" class="active">Administración</a>
+      <a href="menu-management.html">Menú y precios</a>
+      <a href="https://github.com/mnavas/mishimenu" target="_blank" class="btn btn-primary">GitHub</a>
+    </div>
+    <button class="nav-hamburger" id="nav-toggle" aria-label="Abrir menú" onclick="toggleNav()"><span></span><span></span><span></span></button>
+  </div>
+  <div class="nav-mobile" id="nav-mobile">
+    <a href="../index.html#features">Funciones</a>
+    <a href="install.html">Instalación</a>
+    <a href="daily-use.html">Uso diario</a>
+    <a href="admin.html" class="active">Administración</a>
+    <a href="menu-management.html">Menú y precios</a>
+    <a href="https://github.com/mnavas/mishimenu" target="_blank" class="btn btn-primary">GitHub</a>
+  </div>
+</nav>
+
+<div class="page-header">
+  <div class="badge">🍽️ Administración</div>
+  <h1>Gestión, backups y mantenimiento</h1>
+  <p>Cómo manejar tu equipo, mantener los datos seguros, actualizar MishiMenu y resolver los problemas más comunes.</p>
+</div>
+
+<div class="toc-bar">
+  <ul>
+    <li><a href="#cli" class="active">Comandos CLI</a></li>
+    <li><a href="#staff">Equipo</a></li>
+    <li><a href="#backup">Backup</a></li>
+    <li><a href="#update">Actualizar</a></li>
+    <li><a href="#network">Red y seguridad</a></li>
+    <li><a href="#troubleshoot">Problemas</a></li>
+  </ul>
+</div>
+
+<div class="page-body">
+
+  <section class="doc-section" id="cli">
+    <h2>Referencia rápida de comandos</h2>
+    <p>Ejecuta estos comandos desde la carpeta <code>mishimenu</code>. En Windows usa <code>mishimenu</code> sin el <code>./</code>.</p>
+    <div class="quick-ref">
+      <h3>Todos los comandos</h3>
+      <div class="cmd-row"><span class="cmd-label">Iniciar</span><span class="cmd-code">./mishimenu start</span></div>
+      <div class="cmd-row"><span class="cmd-label">Detener</span><span class="cmd-code">./mishimenu stop</span></div>
+      <div class="cmd-row"><span class="cmd-label">Reiniciar</span><span class="cmd-code">./mishimenu restart</span></div>
+      <div class="cmd-row"><span class="cmd-label">Ver estado</span><span class="cmd-code">./mishimenu status</span></div>
+      <div class="cmd-row"><span class="cmd-label">Logs en vivo</span><span class="cmd-code">./mishimenu logs</span></div>
+      <div class="cmd-row"><span class="cmd-label">Logs de la app</span><span class="cmd-code">./mishimenu logs mishimenu</span></div>
+      <div class="cmd-row"><span class="cmd-label">Logs de base de datos</span><span class="cmd-code">./mishimenu logs db</span></div>
+      <div class="cmd-row"><span class="cmd-label">Ver URLs de red</span><span class="cmd-code">./mishimenu hostname</span></div>
+      <div class="cmd-row"><span class="cmd-label">Hacer backup</span><span class="cmd-code">./mishimenu backup</span></div>
+      <div class="cmd-row"><span class="cmd-label">Restaurar backup</span><span class="cmd-code">./mishimenu restore backups/archivo.sql</span></div>
+      <div class="cmd-row"><span class="cmd-label">Actualizar</span><span class="cmd-code">./mishimenu update</span></div>
+      <div class="cmd-row"><span class="cmd-label">Crear cuenta admin</span><span class="cmd-code">./mishimenu add-owner</span></div>
+      <div class="cmd-row"><span class="cmd-label">Ver ayuda</span><span class="cmd-code">./mishimenu help</span></div>
+    </div>
+  </section>
+
+  <hr class="divider" />
+
+  <section class="doc-section" id="staff">
+    <h2>Gestión del equipo</h2>
+    <p>Crea cuentas individuales para tu personal y controla exactamente a qué partes de MishiMenu pueden acceder.</p>
+
+    <h3>Roles de usuario</h3>
+    <p>Cada miembro del equipo puede tener cualquier combinación de tres roles:</p>
+    <div class="role-grid">
+      <div class="role-card">
+        <h4>🍽️ Menú</h4>
+        <p>Puede agregar, editar y ocultar platos y categorías en la Carta.</p>
+      </div>
+      <div class="role-card">
+        <h4>💳 Pagos</h4>
+        <p>Puede verificar y rechazar órdenes en el dashboard de pagos.</p>
+      </div>
+      <div class="role-card">
+        <h4>👨‍🍳 Cocina</h4>
+        <p>Puede ver y completar órdenes en la pantalla de cocina.</p>
+      </div>
+    </div>
+    <p style="margin-top:1rem;">Los usuarios sin rol asignado pueden iniciar sesión pero no pueden hacer nada. Los <strong>Admins</strong> tienen acceso completo a todo, incluyendo Configuración y Gestión de usuarios. Tu cuenta (creada durante la instalación) siempre es admin.</p>
+
+    <div class="callout callout-info">
+      <span class="callout-icon">💡</span>
+      <span>Si un usuario tiene solo el rol Cocina, al iniciar sesión va directamente a la pantalla de cocina — nunca ve el dashboard principal.</span>
+    </div>
+
+    <h3>Crear un usuario</h3>
+    <ol class="steps-list">
+      <li>Ve al dashboard y haz clic en <strong>👥</strong> en el encabezado</li>
+      <li>Haz clic en <strong>+ Añadir usuario</strong></li>
+      <li>Ingresa nombre, correo y contraseña temporal</li>
+      <li>Marca los roles que necesita</li>
+      <li>Haz clic en <strong>Crear usuario</strong></li>
+    </ol>
+    <p style="margin-top:0.75rem;">El usuario puede iniciar sesión en <code>http://{tu-ip}:3000/dashboard/login</code>.</p>
+
+    <h3>Cambiar los roles de un usuario</h3>
+    <ol class="steps-list">
+      <li>Haz clic en <strong>👥</strong> en el encabezado</li>
+      <li>Encuentra el usuario y haz clic en ✏️</li>
+      <li>Marca o desmarca los roles</li>
+      <li>Haz clic en <strong>Guardar</strong></li>
+    </ol>
+    <p style="margin-top:0.75rem;">Los cambios se aplican inmediatamente — el usuario verá el acceso actualizado la próxima vez que cargue una página.</p>
+
+    <h3>Eliminar un usuario</h3>
+    <ol class="steps-list">
+      <li>Haz clic en <strong>👥</strong> en el encabezado</li>
+      <li>Encuentra el usuario y haz clic en 🗑</li>
+      <li>Confirma la eliminación</li>
+    </ol>
+    <p style="margin-top:0.75rem;">Esto elimina permanentemente su acceso.</p>
+
+    <h3>Restablecer contraseña</h3>
+    <p>No hay restablecimiento de contraseña automático. Si un miembro del equipo olvidó su contraseña:</p>
+    <ol class="steps-list">
+      <li>Elimina su cuenta (👥 → 🗑)</li>
+      <li>Crea una nueva con contraseña diferente (👥 → + Añadir usuario)</li>
+    </ol>
+
+    <h3>Crear una cuenta admin adicional</h3>
+    <p>Usa el CLI:</p>
+    <div class="code-wrap"><pre><span class="kw">./mishimenu</span> add-owner</pre></div>
+    <p style="margin-top:0.5rem;">Se te pedirá un correo y contraseña (ingresada dos veces para confirmar).</p>
+  </section>
+
+  <hr class="divider" />
+
+  <section class="doc-section" id="backup">
+    <h2>Backup y restauración</h2>
+
+    <h3>Crear un backup</h3>
+    <div class="code-wrap"><pre><span class="kw">./mishimenu</span> backup</pre></div>
+    <p style="margin-top:0.5rem;">Guarda un archivo como <code>backups/mishimenu_db_20260516_093000.sql</code> en la carpeta del proyecto.</p>
+    <p>El backup incluye: categorías y platos, órdenes e historial de pagos, configuración del restaurante y cuentas de administrador.</p>
+    <p><strong>No incluye</strong> imágenes de comprobantes ni fotos de platos (están en volúmenes Docker).</p>
+
+    <h3>Frecuencia recomendada</h3>
+    <ul style="margin-left:1.5rem;font-size:0.9rem;color:var(--gray-600);line-height:2;">
+      <li><strong>Diariamente</strong> — al final de cada jornada</li>
+      <li><strong>Antes de cada actualización</strong> — siempre haz backup antes de <code>./mishimenu update</code></li>
+      <li><strong>Después de cambios grandes en la carta</strong> — cuando reestructures el menú significativamente</li>
+    </ul>
+
+    <h3>Guarda los backups fuera de la computadora</h3>
+    <p>La carpeta <code>backups/</code> está en la misma máquina. Si falla la computadora, pierdes todo. Copia los archivos a al menos un lugar adicional:</p>
+    <ul style="margin-left:1.5rem;font-size:0.9rem;color:var(--gray-600);line-height:2;">
+      <li>Una memoria USB en el restaurante</li>
+      <li>Una carpeta en la nube (Google Drive, Dropbox, iCloud)</li>
+      <li>Otra computadora en la red</li>
+    </ul>
+
+    <h3>Restaurar desde backup</h3>
+    <div class="code-wrap"><pre><span class="kw">./mishimenu</span> restore backups/mishimenu_db_20260516_093000.sql</pre></div>
+    <div class="callout callout-danger" style="margin-top:0.75rem;">
+      <span class="callout-icon">⚠️</span>
+      <span><strong>Advertencia:</strong> esto sobreescribe la base de datos actual. Todos los cambios desde el backup se perderán. El sistema pedirá confirmación antes de proceder.</span>
+    </div>
+    <p style="margin-top:0.75rem;">Después de restaurar, reinicia:</p>
+    <div class="code-wrap"><pre><span class="kw">./mishimenu</span> restart</pre></div>
+  </section>
+
+  <hr class="divider" />
+
+  <section class="doc-section" id="update">
+    <h2>Actualizar MishiMenu</h2>
+    <div class="code-wrap"><pre><span class="kw">./mishimenu</span> backup
+<span class="kw">./mishimenu</span> update</pre></div>
+    <p style="margin-top:0.75rem;">Siempre haz backup primero. El comando de actualización:</p>
+    <ol class="steps-list">
+      <li>Descarga la versión más reciente desde GitHub</li>
+      <li>Reconstruye la aplicación web</li>
+      <li>Reinicia todos los servicios</li>
+    </ol>
+    <p style="margin-top:0.75rem;">La app estará brevemente no disponible durante el reinicio (generalmente menos de 30 segundos).</p>
+    <p><strong>Mejor momento para actualizar:</strong> antes de abrir, o entre turnos.</p>
+  </section>
+
+  <hr class="divider" />
+
+  <section class="doc-section" id="network">
+    <h2>Red y seguridad</h2>
+
+    <h3>Puertos utilizados</h3>
+    <table class="border-table">
+      <thead><tr><th>Puerto</th><th>Servicio</th><th>Quién accede</th></tr></thead>
+      <tbody>
+        <tr><td>3000</td><td>App MishiMenu</td><td>Clientes y personal — comparte esta URL</td></tr>
+        <tr><td>3001</td><td>Supabase Studio</td><td>Solo tú — NO compartas públicamente</td></tr>
+        <tr><td>8000</td><td>API Supabase</td><td>Uso interno de la app</td></tr>
+      </tbody>
+    </table>
+
+    <h3>Supabase Studio (puerto 3001)</h3>
+    <p>Studio es el panel de administración de la base de datos. Úsalo para ver tablas, ejecutar consultas y exportar datos. Accede en <code>http://{tu-ip}:3001</code>.</p>
+    <p>Login: usuario <code>supabase</code>, contraseña = tu contraseña de Postgres (en el archivo <code>.env</code> como <code>POSTGRES_PASSWORD</code>).</p>
+    <div class="callout callout-danger">
+      <span class="callout-icon">🔒</span>
+      <span><strong>Mantén Studio privado.</strong> Cualquiera con acceso al puerto 3001 puede leer y modificar todos los datos. Nunca compartas este puerto ni lo incluyas en el WiFi del restaurante.</span>
+    </div>
+
+    <h3>El archivo .env</h3>
+    <p>El archivo <code>.env</code> en la carpeta <code>mishimenu</code> contiene todos los secretos: contraseña de base de datos, claves de firma y tokens internos. Nunca lo compartas. Si queda expuesto, ejecuta <code>./mishimenu install</code> en una copia limpia para generar nuevos secretos (esto resetea la base de datos — haz backup primero).</p>
+  </section>
+
+  <hr class="divider" />
+
+  <section class="doc-section" id="troubleshoot">
+    <h2>Solución de problemas</h2>
+
+    <div class="ts-section">
+      <h4>La app no carga</h4>
+      <p>Verifica el estado de los contenedores:</p>
+      <div class="code-wrap"><pre><span class="kw">./mishimenu</span> status</pre></div>
+      <p style="margin-top:0.5rem;">Todos los servicios deben mostrar <code>Up</code>. Si alguno muestra <code>Restarting</code> o <code>Exited</code>:</p>
+      <div class="code-wrap"><pre><span class="kw">./mishimenu</span> logs       <span class="cm"># ver qué está fallando</span>
+<span class="kw">./mishimenu</span> restart    <span class="cm"># intentar reiniciar</span></pre></div>
+    </div>
+
+    <div class="ts-section" style="margin-top:1rem;">
+      <h4>Los clientes no pueden acceder desde sus celulares</h4>
+      <ol class="steps-list">
+        <li>Confirma que MishiMenu está corriendo (<code>./mishimenu status</code>)</li>
+        <li>Ejecuta <code>./mishimenu hostname</code> — verifica la IP</li>
+        <li>Confirma que el celular del cliente está en el <strong>mismo WiFi</strong> que la computadora del servidor</li>
+        <li>Intenta abrir la URL desde la computadora del servidor — si funciona ahí pero no en celulares, es un problema de red</li>
+        <li>Verifica si el router bloquea el tráfico entre dispositivos ("AP isolation" o "client isolation") — desactívalo si es el caso</li>
+      </ol>
+    </div>
+
+    <div class="ts-section" style="margin-top:1rem;">
+      <h4>Error "Restaurante no configurado"</h4>
+      <p>Falta el registro del restaurante en la base de datos. Ejecuta:</p>
+      <div class="code-wrap"><pre><span class="kw">./mishimenu</span> seed</pre></div>
+    </div>
+
+    <div class="ts-section" style="margin-top:1rem;">
+      <h4>Las órdenes no aparecen en tiempo real</h4>
+      <ol class="steps-list">
+        <li>Verifica que el contenedor <code>realtime</code> está corriendo: <code>./mishimenu status</code></li>
+        <li>Si muestra <code>Restarting</code>, reinícialo: <code>docker compose restart realtime</code></li>
+      </ol>
+    </div>
+
+    <div class="ts-section" style="margin-top:1rem;">
+      <h4>El OCR no lee los comprobantes</h4>
+      <ul style="margin-left:1.25rem;font-size:0.875rem;color:var(--gray-600);line-height:2;">
+        <li>Verifica que la imagen sea clara y no esté oscura</li>
+        <li>Los screenshots de DeUna y Sipi son los que mejor se leen</li>
+        <li>Imágenes borrosas o rotadas pueden fallar — siempre puedes verificar manualmente</li>
+        <li>La verificación manual siempre puede reemplazar al OCR — un OCR fallido no bloquea la aprobación</li>
+      </ul>
+    </div>
+
+    <div class="ts-section" style="margin-top:1rem;">
+      <h4>Después de un corte de luz</h4>
+      <p>MishiMenu reinicia automáticamente. Espera unos 2 minutos después de que vuelva la luz. Si no responde:</p>
+      <div class="code-wrap"><pre><span class="kw">./mishimenu</span> start</pre></div>
+      <p style="margin-top:0.5rem;">Los pedidos en la base de datos se conservan. Los pedidos que se estaban realizando exactamente en el momento del corte podrían perderse.</p>
+    </div>
+
+    <div class="ts-section" style="margin-top:1rem;">
+      <h4>El disco está casi lleno</h4>
+      <div class="code-wrap"><pre>docker system df</pre></div>
+      <p style="margin-top:0.5rem;">Limpia el caché de construcción de Docker (seguro, no borra tus datos):</p>
+      <div class="code-wrap"><pre>docker system prune</pre></div>
+    </div>
+  </section>
+
+</div>
+
+<footer>
+  <div class="footer-brand"><span class="brand-icon">🍽️</span><span>MishiMenu</span></div>
+  <p>Sistema de pedidos con QR para restaurantes</p>
+  <nav>
+    <a href="https://github.com/mnavas/mishimenu">GitHub</a>
+    <a href="install.html">Instalación</a>
+    <a href="daily-use.html">Uso diario</a>
+    <a href="admin.html">Administración</a>
+    <a href="menu-management.html">Menú y precios</a>
+    <a href="../index.html#services">Servicios</a>
+    <a href="https://github.com/mnavas/mishimenu/issues">Reportar problema</a>
+  </nav>
+</footer>
+
+<script>
+function toggleNav() {
+  document.getElementById('nav-toggle').classList.toggle('open');
+  document.getElementById('nav-mobile').classList.toggle('open');
+}
+</script>
+</body>
+</html>
