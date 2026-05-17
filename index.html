@@ -219,6 +219,13 @@
 
     .feature-card h3 { font-size: 1rem; font-weight: 700; margin-bottom: 0.5rem; }
     .feature-card p { font-size: 0.9rem; color: var(--gray-600); line-height: 1.6; }
+    .feature-group-label {
+      grid-column: 1 / -1; margin-top: 1rem;
+      font-size: 0.75rem; font-weight: 700; letter-spacing: 0.1em;
+      text-transform: uppercase; color: var(--green);
+      padding-bottom: 0.5rem; border-bottom: 1px solid var(--green-pale);
+    }
+    .feature-group-label:first-child { margin-top: 0; }
 
     /* ── PAYMENT METHODS ── */
     .payments-grid {
@@ -497,8 +504,8 @@
   <h1>Pedidos con QR para tu restaurante,<br/><span class="highlight">en tu propio servidor</span></h1>
   <p>Los clientes escanean, piden y pagan desde su celular. Tú ves cada orden en tiempo real, verificas el pago y la cocina empieza. Sin suscripciones, sin internet obligatorio, sin intermediarios.</p>
   <div class="hero-actions">
-    <a href="https://github.com/mnavas/mishimenu" class="btn btn-primary">⬇ Instalar en minutos</a>
-    <a href="docs/install.html" class="btn btn-outline">Leer la guía</a>
+    <a href="pages/install.html" class="btn btn-primary">⬇ Instalar en minutos</a>
+    <a href="https://github.com/mnavas/mishimenu" class="btn btn-outline" target="_blank">Ver en GitHub →</a>
   </div>
   <div class="hero-meta">
     <span>⚡ Un solo comando de instalación</span>
@@ -559,10 +566,32 @@
 
     <div class="feature-grid">
 
+      <div class="feature-group-label">Lo que ve el cliente</div>
+
       <div class="feature-card">
         <div class="feature-icon">📋</div>
         <h3>Carta digital con QR</h3>
         <p>Cada mesa tiene su QR. El cliente abre la carta en su celular sin instalar nada — solo el navegador. Fotos, descripciones y precios con IVA o sin él.</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon">🔄</div>
+        <h3>Pago anticipado o al final</h3>
+        <p>Elige el modo que va con tu restaurante: el cliente paga antes de que cocina empiece, o al terminar de comer. Cambiable en cualquier momento.</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon">🖼️</div>
+        <h3>Fotos de platos</h3>
+        <p>Sube una foto por plato directamente desde el editor. Las imágenes se guardan en el servidor — sin servicios externos de almacenamiento.</p>
+      </div>
+
+      <div class="feature-group-label">Durante el servicio</div>
+
+      <div class="feature-card">
+        <div class="feature-icon">⚡</div>
+        <h3>Tiempo real sin recargar</h3>
+        <p>Las órdenes aparecen en el dashboard y en la cocina al instante, vía WebSocket. No es necesario refrescar la página.</p>
       </div>
 
       <div class="feature-card">
@@ -578,22 +607,18 @@
       </div>
 
       <div class="feature-card">
+        <div class="feature-icon">🙈</div>
+        <h3>Ocultar platos al instante</h3>
+        <p>¿Se acabó el ceviche? Un toque en el dashboard y desaparece de la carta del cliente de inmediato. Toca de nuevo para restaurarlo.</p>
+      </div>
+
+      <div class="feature-card">
         <div class="feature-icon">👨‍🍳</div>
         <h3>Pantalla de cocina</h3>
         <p>Opcional. Muestra cada orden verificada en tiempo real — número, mesa, platos y tiempo de espera. El cocinero toca "Listo" cuando termina.</p>
       </div>
 
-      <div class="feature-card">
-        <div class="feature-icon">👥</div>
-        <h3>Gestión de personal</h3>
-        <p>Crea cuentas para cada miembro del equipo y asigna roles: puede editar la carta, verificar pagos o ver la cocina — de forma independiente.</p>
-      </div>
-
-      <div class="feature-card">
-        <div class="feature-icon">⚡</div>
-        <h3>Tiempo real sin recargar</h3>
-        <p>Las órdenes aparecen en el dashboard y en la cocina al instante, vía WebSocket. No es necesario refrescar la página.</p>
-      </div>
+      <div class="feature-group-label">Gestión y configuración</div>
 
       <div class="feature-card">
         <div class="feature-icon">💰</div>
@@ -608,21 +633,9 @@
       </div>
 
       <div class="feature-card">
-        <div class="feature-icon">🔄</div>
-        <h3>Pago anticipado o al final</h3>
-        <p>Elige el modo que va con tu restaurante: el cliente paga antes de que cocina empiece, o al terminar de comer. Cambiable en cualquier momento.</p>
-      </div>
-
-      <div class="feature-card">
-        <div class="feature-icon">🙈</div>
-        <h3>Ocultar platos al instante</h3>
-        <p>¿Se acabó el ceviche? Un toque en el dashboard y desaparece de la carta del cliente de inmediato. Toca de nuevo para restaurarlo.</p>
-      </div>
-
-      <div class="feature-card">
-        <div class="feature-icon">🖼️</div>
-        <h3>Fotos de platos</h3>
-        <p>Sube una foto por plato directamente desde el editor. Las imágenes se guardan en el servidor — sin servicios externos de almacenamiento.</p>
+        <div class="feature-icon">👥</div>
+        <h3>Gestión de personal</h3>
+        <p>Crea cuentas para cada miembro del equipo y asigna roles: puede editar la carta, verificar pagos o ver la cocina — de forma independiente.</p>
       </div>
 
       <div class="feature-card">
@@ -768,15 +781,15 @@ cd mishimenu
 <section class="section services" id="services">
   <div class="section-inner">
     <div class="section-label">Servicios profesionales</div>
-    <h2 class="section-title">¿Necesitas que yo lo instale por ti?</h2>
-    <p class="section-sub">MishiMenu es gratis y de código abierto. Si prefieres que alguien se encargue de la instalación, la migración del menú o cualquier personalización — ofrezco servicios de pago para que empieces sin complicaciones.</p>
+    <h2 class="section-title">¿Prefieres que alguien lo instale por ti?</h2>
+    <p class="section-sub">MishiMenu es gratis y de código abierto. Si prefieres contar con ayuda para la instalación, la migración del menú o cualquier personalización — hay servicios de pago disponibles para que empieces sin complicaciones.</p>
 
     <div class="services-grid">
 
       <div class="service-card">
         <h3>Instalación y puesta en marcha</h3>
         <div class="price">Pago único · tarifa fija</div>
-        <p>Instalo MishiMenu en la computadora de tu restaurante, configuro la red, creo tu cuenta de administrador y te entrego el sistema funcionando el mismo día.</p>
+        <p>Instalación de MishiMenu en la computadora del restaurante, configuración de la red, creación de la cuenta de administrador y entrega del sistema funcionando el mismo día.</p>
         <ul>
           <li>Instalación en tu computadora o mini-PC</li>
           <li>Configuración de red WiFi y IP fija</li>
@@ -791,7 +804,7 @@ cd mishimenu
         <div class="service-badge">Más solicitado</div>
         <h3>Carga del menú completo</h3>
         <div class="price">Por cantidad de platos · descuentos por volumen</div>
-        <p>¿Tienes el menú en papel, Word o una hoja de cálculo? Me encargo de ingresar todas las categorías, platos, precios y fotos en MishiMenu para que abras listo.</p>
+        <p>¿Tienes el menú en papel, Word o una hoja de cálculo? Se ingresan todas las categorías, platos, precios y fotos en MishiMenu para que abras listo.</p>
         <ul>
           <li>Creación de categorías y platos</li>
           <li>Subida de fotos optimizadas</li>
@@ -804,7 +817,7 @@ cd mishimenu
       <div class="service-card">
         <h3>Desarrollo a medida</h3>
         <div class="price">Por hora o proyecto</div>
-        <p>¿Necesitas algo que no está en MishiMenu? Puedo agregar funciones específicas para tu negocio: integraciones, reportes, impresoras de tickets u otras personalizaciones.</p>
+        <p>¿Necesitas algo que no está en MishiMenu? Es posible agregar funciones específicas para tu negocio: integraciones, reportes, impresoras de tickets u otras personalizaciones.</p>
         <ul>
           <li>Integración con impresoras térmicas</li>
           <li>Reportes y exportación de datos</li>
@@ -888,6 +901,7 @@ cd mishimenu
     <a href="pages/daily-use.html">Uso diario</a>
     <a href="pages/admin.html">Administración</a>
     <a href="pages/menu-management.html">Menú y precios</a>
+    <a href="pages/examples.html">Ejemplos</a>
     <a href="#services">Servicios</a>
     <a href="#support">Apoya</a>
     <a href="https://github.com/mnavas/mishimenu/issues">Reportar un problema</a>

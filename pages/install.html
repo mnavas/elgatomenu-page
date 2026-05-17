@@ -458,6 +458,7 @@ cd mishimenu</pre></div>
     <a href="daily-use.html">Uso diario</a>
     <a href="admin.html">Administración</a>
     <a href="menu-management.html">Menú y precios</a>
+    <a href="examples.html">Ejemplos</a>
     <a href="../index.html#services">Servicios</a>
     <a href="https://github.com/mnavas/mishimenu/issues">Reportar problema</a>
   </nav>
@@ -470,6 +471,23 @@ function switchOS(os, btn) {
   btn.classList.add('active');
   document.getElementById('panel-' + os).classList.add('active');
 }
+
+(function() {
+  var sections = document.querySelectorAll(".doc-section");
+  var tocLinks = document.querySelectorAll(".toc-bar a");
+  if (!sections.length || !tocLinks.length) return;
+  var io = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        var id = entry.target.id;
+        tocLinks.forEach(function(a) {
+          a.classList.toggle("active", a.getAttribute("href") === "#" + id);
+        });
+      }
+    });
+  }, { rootMargin: "-15% 0px -75% 0px" });
+  sections.forEach(function(s) { io.observe(s); });
+})();
 function toggleNav() {
   document.getElementById('nav-toggle').classList.toggle('open');
   document.getElementById('nav-mobile').classList.toggle('open');
