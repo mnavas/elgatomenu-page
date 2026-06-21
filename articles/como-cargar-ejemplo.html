@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Cómo cargar una carta de ejemplo — MishiMenu</title>
-  <meta name="description" content="Guía paso a paso para ejecutar los scripts Python de ejemplo y cargar una carta completa en MishiMenu en segundos." />
+  <title>Cómo cargar una carta de ejemplo — ElGatoMenu</title>
+  <meta name="description" content="Guía paso a paso para ejecutar los scripts Python de ejemplo y cargar una carta completa en ElGatoMenu en segundos." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
@@ -84,13 +84,13 @@
 
 <nav>
   <div class="nav-inner">
-    <a href="../index.html" class="nav-brand"><span class="brand-icon">🍽️</span><span>MishiMenu</span></a>
+    <a href="../index.html" class="nav-brand"><span class="brand-icon">🍽️</span><span>ElGatoMenu</span></a>
     <div class="nav-links">
       <a href="../index.html#features">Funciones</a>
       <a href="../pages/install.html">Instalación</a>
       <a href="../pages/examples.html">Ejemplos</a>
       <a href="../index.html#services">Servicios</a>
-      <a href="https://github.com/mnavas/mishimenu" target="_blank" class="btn btn-primary">GitHub</a>
+      <a href="https://github.com/mnavas/elgatomenu" target="_blank" class="btn btn-primary">GitHub</a>
     </div>
     <button class="nav-hamburger" id="nav-toggle" aria-label="Abrir menú" onclick="toggleNav()"><span></span><span></span><span></span></button>
   </div>
@@ -99,25 +99,25 @@
     <a href="../pages/install.html">Instalación</a>
     <a href="../pages/examples.html">Ejemplos</a>
     <a href="../index.html#services">Servicios</a>
-    <a href="https://github.com/mnavas/mishimenu" target="_blank" class="btn btn-primary">GitHub</a>
+    <a href="https://github.com/mnavas/elgatomenu" target="_blank" class="btn btn-primary">GitHub</a>
   </div>
 </nav>
 
 <div class="article-header">
   <div class="badge">🐍 Tutorial</div>
-  <h1>Cómo cargar una carta de ejemplo en MishiMenu</h1>
+  <h1>Cómo cargar una carta de ejemplo en ElGatoMenu</h1>
   <p class="meta">Tiempo estimado: 5 minutos · Solo necesitas Python 3</p>
 </div>
 
 <div class="article-body">
 
-  <p>Los scripts de ejemplo de MishiMenu son archivos Python que se conectan a tu instalación y cargan una carta completa — categorías y platos — en segundos. Ideal para probar el sistema antes de ingresar tu carta real, o como punto de partida que luego editas desde el dashboard.</p>
+  <p>Los scripts de ejemplo de ElGatoMenu son archivos Python que se conectan a tu instalación y cargan una carta completa — categorías y platos — en segundos. Ideal para probar el sistema antes de ingresar tu carta real, o como punto de partida que luego editas desde el dashboard.</p>
 
   <h2>Lo que necesitas</h2>
   <ul>
-    <li><strong>MishiMenu instalado y funcionando</strong> en tu computadora o red local (<a href="../pages/install.html" style="color:var(--green);">guía de instalación</a>)</li>
+    <li><strong>ElGatoMenu instalado y funcionando</strong> en tu computadora o red local (<a href="../pages/install.html" style="color:var(--green);">guía de instalación</a>)</li>
     <li><strong>Python 3</strong> instalado en la computadora desde donde ejecutas el script (puede ser la misma o una diferente a la del servidor)</li>
-    <li>Tu <strong>correo y contraseña de administrador</strong> de MishiMenu</li>
+    <li>Tu <strong>correo y contraseña de administrador</strong> de ElGatoMenu</li>
     <li>El <strong>archivo .py</strong> descargado desde la página de <a href="../pages/examples.html" style="color:var(--green);">Ejemplos</a></li>
   </ul>
 
@@ -164,7 +164,7 @@
   </div>
 
   <h2>Paso 4 — Ejecuta el script</h2>
-  <p>El script necesita saber la URL de tu MishiMenu. Si lo corres en la misma computadora del servidor, usa <code>http://localhost:3000</code>. Si lo corres desde otra computadora en la misma red, usa la IP del servidor (la misma que aparece en los QR de las mesas).</p>
+  <p>El script necesita saber la URL de tu ElGatoMenu. Si lo corres en la misma computadora del servidor, usa <code>http://localhost:3000</code>. Si lo corres desde otra computadora en la misma red, usa la IP del servidor (la misma que aparece en los QR de las mesas).</p>
 
   <div class="os-tabs">
     <button class="os-tab active" onclick="switchOS3('windows', this)">🪟 Windows</button>
@@ -173,23 +173,23 @@
 
   <div class="os-panel active" id="panel3-windows">
     <div class="code-wrap"><pre><span class="cm"># Reemplaza la IP con la de tu servidor</span>
-set <span class="kw">MISHIMENU_HOST</span>=http://192.168.1.50:3000
+set <span class="kw">ELGATOMENU_HOST</span>=http://192.168.1.50:3000
 python load_chifa.py</pre></div>
     <p>O en una sola línea:</p>
     <div class="code-wrap"><pre><span class="cm"># PowerShell</span>
-$env:<span class="kw">MISHIMENU_HOST</span>="http://192.168.1.50:3000"; python load_chifa.py</pre></div>
+$env:<span class="kw">ELGATOMENU_HOST</span>="http://192.168.1.50:3000"; python load_chifa.py</pre></div>
   </div>
 
   <div class="os-panel" id="panel3-mac">
-    <div class="code-wrap"><pre><span class="kw">MISHIMENU_HOST</span>=http://192.168.1.50:3000 python3 load_chifa.py
+    <div class="code-wrap"><pre><span class="kw">ELGATOMENU_HOST</span>=http://192.168.1.50:3000 python3 load_chifa.py
 
 <span class="cm"># O si el servidor está en la misma computadora:</span>
 python3 load_chifa.py</pre></div>
   </div>
 
   <h2>Paso 5 — Ingresa tus credenciales</h2>
-  <p>El script te pedirá el correo y la contraseña de administrador de MishiMenu. La contraseña no se muestra mientras la escribes (los caracteres están ocultos):</p>
-  <div class="code-wrap"><pre>🍜  MishiMenu — Cargando carta: Chifa El Dragón de Oro
+  <p>El script te pedirá el correo y la contraseña de administrador de ElGatoMenu. La contraseña no se muestra mientras la escribes (los caracteres están ocultos):</p>
+  <div class="code-wrap"><pre>🍜  ElGatoMenu — Cargando carta: Chifa El Dragón de Oro
     Servidor: http://192.168.1.50:3000
 
   Correo del administrador: admin@mirestaurante.com
@@ -209,7 +209,7 @@ python3 load_chifa.py</pre></div>
      Abre http://192.168.1.50:3000 para verla.</pre></div>
 
   <h2>¿Y ahora?</h2>
-  <p>Abre MishiMenu en tu navegador (<code>http://{tu-ip}:3000</code>) y verás la carta cargada con todas las categorías y platos. Desde el dashboard puedes:</p>
+  <p>Abre ElGatoMenu en tu navegador (<code>http://{tu-ip}:3000</code>) y verás la carta cargada con todas las categorías y platos. Desde el dashboard puedes:</p>
   <ul>
     <li>Cambiar nombres y precios de cualquier plato con ✏️</li>
     <li>Agregar fotos a cada plato</li>
@@ -228,7 +228,7 @@ python3 load_chifa.py</pre></div>
   <p>El correo o la contraseña no son correctos. Prueba iniciando sesión manualmente en <code>http://{tu-ip}:3000/dashboard/login</code> para confirmarlo.</p>
 
   <h3>«HTTP 404» o «Connection refused»</h3>
-  <p>La URL del servidor es incorrecta o MishiMenu no está corriendo. Verifica con <code>./mishimenu status</code> y asegúrate de que la IP en <code>MISHIMENU_HOST</code> es la correcta.</p>
+  <p>La URL del servidor es incorrecta o ElGatoMenu no está corriendo. Verifica con <code>./elgatomenu status</code> y asegúrate de que la IP en <code>ELGATOMENU_HOST</code> es la correcta.</p>
 
   <h3>«python» no se reconoce (Windows)</h3>
   <p>Python no está en el PATH. Reinstala Python desde <a href="https://www.python.org/downloads/windows/" target="_blank" style="color:var(--green);">python.org</a> marcando la opción <strong>"Add Python to PATH"</strong>.</p>
@@ -258,15 +258,15 @@ python3 load_chifa.py</pre></div>
 </div>
 
 <footer>
-  <div class="footer-brand"><span class="brand-icon">🍽️</span><span>MishiMenu</span></div>
+  <div class="footer-brand"><span class="brand-icon">🍽️</span><span>ElGatoMenu</span></div>
   <p>Sistema de pedidos con QR para restaurantes</p>
   <nav>
-    <a href="https://github.com/mnavas/mishimenu">GitHub</a>
+    <a href="https://github.com/mnavas/elgatomenu">GitHub</a>
     <a href="../pages/install.html">Instalación</a>
     <a href="../pages/daily-use.html">Uso diario</a>
     <a href="../pages/admin.html">Administración</a>
     <a href="../pages/examples.html">Ejemplos</a>
-    <a href="https://github.com/mnavas/mishimenu/issues">Reportar problema</a>
+    <a href="https://github.com/mnavas/elgatomenu/issues">Reportar problema</a>
   </nav>
 </footer>
 

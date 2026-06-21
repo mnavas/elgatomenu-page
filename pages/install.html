@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Instalación — MishiMenu</title>
-  <meta name="description" content="Instala MishiMenu en Windows, Mac o Linux en minutos. Guía paso a paso sin conocimientos técnicos." />
+  <title>Instalación — ElGatoMenu</title>
+  <meta name="description" content="Instala ElGatoMenu en Windows, Mac o Linux en minutos. Guía paso a paso sin conocimientos técnicos." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
@@ -102,7 +102,7 @@
 
 <nav>
   <div class="nav-inner">
-    <a href="../index.html" class="nav-brand"><span class="brand-icon">🍽️</span><span>MishiMenu</span></a>
+    <a href="../index.html" class="nav-brand"><span class="brand-icon">🍽️</span><span>ElGatoMenu</span></a>
     <div class="nav-links">
       <a href="../index.html#features">Funciones</a>
       <a href="install.html" class="active">Instalación</a>
@@ -110,7 +110,7 @@
       <a href="admin.html">Administración</a>
       <a href="menu-management.html">Menú y precios</a>
       <a href="examples.html">Ejemplos</a>
-      <a href="https://github.com/mnavas/mishimenu" target="_blank" class="btn btn-primary">Comenzar</a>
+      <a href="https://github.com/mnavas/elgatomenu" target="_blank" class="btn btn-primary">Comenzar</a>
     </div>
     <button class="nav-hamburger" id="nav-toggle" aria-label="Abrir menú" onclick="toggleNav()"><span></span><span></span><span></span></button>
   </div>
@@ -121,14 +121,14 @@
     <a href="admin.html">Administración</a>
     <a href="menu-management.html">Menú y precios</a>
     <a href="examples.html">Ejemplos</a>
-    <a href="https://github.com/mnavas/mishimenu" target="_blank" class="btn btn-primary">Comenzar</a>
+    <a href="https://github.com/mnavas/elgatomenu" target="_blank" class="btn btn-primary">Comenzar</a>
   </div>
 </nav>
 
 <div class="page-header">
   <div class="badge">🍽️ Guía de instalación</div>
-  <h1>Instala MishiMenu en tu computadora</h1>
-  <p>Sin conocimientos técnicos. Sigue estos pasos y tendrás MishiMenu funcionando en menos de 10 minutos.</p>
+  <h1>Instala ElGatoMenu en tu computadora</h1>
+  <p>Sin conocimientos técnicos. Sigue estos pasos y tendrás ElGatoMenu funcionando en menos de 10 minutos.</p>
 </div>
 
 <div class="toc-bar">
@@ -147,7 +147,7 @@
 
   <section class="doc-section" id="prereqs">
     <h2>Paso 1 — Requisitos previos</h2>
-    <p>MishiMenu necesita <strong>Docker</strong> para funcionar. El asistente de instalación lo descarga automáticamente si no lo tienes. También necesitas <strong>Python 3</strong> para ejecutar el asistente.</p>
+    <p>ElGatoMenu necesita <strong>Docker</strong> para funcionar. El asistente de instalación lo descarga automáticamente si no lo tienes. También necesitas <strong>Python 3</strong> para ejecutar el asistente.</p>
 
     <div class="os-tabs">
       <button class="os-tab active" onclick="switchOS('windows', this)">🪟 Windows</button>
@@ -243,25 +243,25 @@ sudo dnf install python3</pre></div>
   <hr class="divider" />
 
   <section class="doc-section" id="download">
-    <h2>Paso 2 — Descarga MishiMenu</h2>
-    <p>Descarga los archivos de MishiMenu a tu computadora. Puedes usar Git o descargar el ZIP.</p>
+    <h2>Paso 2 — Descarga ElGatoMenu</h2>
+    <p>Descarga los archivos de ElGatoMenu a tu computadora. Puedes usar Git o descargar el ZIP.</p>
     <div class="steps">
       <div class="step-card">
         <div class="step-num">1</div>
         <div class="step-body">
           <h3>Opción A — Descargar con Git (recomendado)</h3>
-          <p>En la terminal, navega a la carpeta donde quieres instalar MishiMenu:</p>
+          <p>En la terminal, navega a la carpeta donde quieres instalar ElGatoMenu:</p>
           <div class="code-wrap"><pre><span class="cm"># Windows</span>
 cd %USERPROFILE%\Documents
 
 <span class="cm"># Mac / Linux</span>
 cd ~/Documents</pre></div>
-          <p style="margin-top:0.5rem;">Luego descarga MishiMenu:</p>
-          <div class="code-wrap"><pre>git clone https://github.com/mnavas/mishimenu.git
-cd mishimenu</pre></div>
+          <p style="margin-top:0.5rem;">Luego descarga ElGatoMenu:</p>
+          <div class="code-wrap"><pre>git clone https://github.com/mnavas/elgatomenu.git
+cd elgatomenu</pre></div>
           <div class="callout callout-info" style="margin-top:0.75rem;">
             <span class="callout-icon">ℹ️</span>
-            <span>Con Git también puedes actualizar MishiMenu fácilmente después con <code>./mishimenu update</code>.</span>
+            <span>Con Git también puedes actualizar ElGatoMenu fácilmente después con <code>./elgatomenu update</code>.</span>
           </div>
         </div>
       </div>
@@ -269,8 +269,8 @@ cd mishimenu</pre></div>
         <div class="step-num">2</div>
         <div class="step-body">
           <h3>Opción B — Descargar como ZIP</h3>
-          <p>Ve a <a href="https://github.com/mnavas/mishimenu" target="_blank">github.com/mnavas/mishimenu</a>, haz clic en el botón verde <strong>Code</strong> y luego en <strong>Download ZIP</strong>.</p>
-          <p>Extrae el ZIP en tu carpeta de Documentos. Tendrás una carpeta llamada <code>mishimenu-main</code> — abre la terminal dentro de esa carpeta.</p>
+          <p>Ve a <a href="https://github.com/mnavas/elgatomenu" target="_blank">github.com/mnavas/elgatomenu</a>, haz clic en el botón verde <strong>Code</strong> y luego en <strong>Download ZIP</strong>.</p>
+          <p>Extrae el ZIP en tu carpeta de Documentos. Tendrás una carpeta llamada <code>elgatomenu-main</code> — abre la terminal dentro de esa carpeta.</p>
         </div>
       </div>
     </div>
@@ -287,10 +287,10 @@ cd mishimenu</pre></div>
         <div class="step-body">
           <h3>Ejecuta el instalador</h3>
           <div class="code-wrap"><pre><span class="cm"># Mac / Linux:</span>
-<span class="kw">./mishimenu</span> install
+<span class="kw">./elgatomenu</span> install
 
 <span class="cm"># Windows:</span>
-<span class="kw">mishimenu</span> install</pre></div>
+<span class="kw">elgatomenu</span> install</pre></div>
         </div>
       </div>
       <div class="step-card">
@@ -307,7 +307,7 @@ cd mishimenu</pre></div>
           <h3>Espera el primer inicio</h3>
           <p>Después de responder, el instalador descarga y construye todo. <strong>La primera vez tarda 5–10 minutos</strong> según la velocidad de internet — Docker descarga los componentes. Los inicios siguientes son instantáneos.</p>
           <p style="margin-top:0.5rem;">Cuando termina, verás:</p>
-          <div class="code-wrap"><pre>✓ MishiMenu started.
+          <div class="code-wrap"><pre>✓ ElGatoMenu started.
 
   App:       <span class="st">http://192.168.x.x:3000</span>
   Dashboard: <span class="st">http://192.168.x.x:3000/dashboard</span>
@@ -401,7 +401,7 @@ cd mishimenu</pre></div>
         <div class="step-num">1</div>
         <div class="step-body">
           <h3>Encuentra tu URL</h3>
-          <p>Ejecuta <code>./mishimenu hostname</code> para ver todas las URLs disponibles, o usa la que el instalador mostró al final de la instalación.</p>
+          <p>Ejecuta <code>./elgatomenu hostname</code> para ver todas las URLs disponibles, o usa la que el instalador mostró al final de la instalación.</p>
         </div>
       </div>
       <div class="step-card">
@@ -430,37 +430,37 @@ cd mishimenu</pre></div>
 
   <section class="doc-section" id="quickref">
     <h2>Referencia rápida — comandos del día a día</h2>
-    <p>Ejecuta estos comandos desde la carpeta <code>mishimenu</code> en la terminal. En Windows usa <code>mishimenu</code> sin el <code>./</code>.</p>
+    <p>Ejecuta estos comandos desde la carpeta <code>elgatomenu</code> en la terminal. En Windows usa <code>elgatomenu</code> sin el <code>./</code>.</p>
     <div class="quick-ref">
       <h3>Comandos del servidor</h3>
-      <div class="cmd-row"><span class="cmd-label">Instalación inicial</span><span class="cmd-code">./mishimenu install</span></div>
-      <div class="cmd-row"><span class="cmd-label">Iniciar</span><span class="cmd-code">./mishimenu start</span></div>
-      <div class="cmd-row"><span class="cmd-label">Detener</span><span class="cmd-code">./mishimenu stop</span></div>
-      <div class="cmd-row"><span class="cmd-label">Reiniciar</span><span class="cmd-code">./mishimenu restart</span></div>
-      <div class="cmd-row"><span class="cmd-label">Ver estado</span><span class="cmd-code">./mishimenu status</span></div>
-      <div class="cmd-row"><span class="cmd-label">Ver logs en vivo</span><span class="cmd-code">./mishimenu logs</span></div>
-      <div class="cmd-row"><span class="cmd-label">Ver URLs de red</span><span class="cmd-code">./mishimenu hostname</span></div>
-      <div class="cmd-row"><span class="cmd-label">Hacer backup</span><span class="cmd-code">./mishimenu backup</span></div>
-      <div class="cmd-row"><span class="cmd-label">Restaurar backup</span><span class="cmd-code">./mishimenu restore backups/archivo.sql</span></div>
-      <div class="cmd-row"><span class="cmd-label">Actualizar</span><span class="cmd-code">./mishimenu update</span></div>
-      <div class="cmd-row"><span class="cmd-label">Crear cuenta admin</span><span class="cmd-code">./mishimenu add-owner</span></div>
+      <div class="cmd-row"><span class="cmd-label">Instalación inicial</span><span class="cmd-code">./elgatomenu install</span></div>
+      <div class="cmd-row"><span class="cmd-label">Iniciar</span><span class="cmd-code">./elgatomenu start</span></div>
+      <div class="cmd-row"><span class="cmd-label">Detener</span><span class="cmd-code">./elgatomenu stop</span></div>
+      <div class="cmd-row"><span class="cmd-label">Reiniciar</span><span class="cmd-code">./elgatomenu restart</span></div>
+      <div class="cmd-row"><span class="cmd-label">Ver estado</span><span class="cmd-code">./elgatomenu status</span></div>
+      <div class="cmd-row"><span class="cmd-label">Ver logs en vivo</span><span class="cmd-code">./elgatomenu logs</span></div>
+      <div class="cmd-row"><span class="cmd-label">Ver URLs de red</span><span class="cmd-code">./elgatomenu hostname</span></div>
+      <div class="cmd-row"><span class="cmd-label">Hacer backup</span><span class="cmd-code">./elgatomenu backup</span></div>
+      <div class="cmd-row"><span class="cmd-label">Restaurar backup</span><span class="cmd-code">./elgatomenu restore backups/archivo.sql</span></div>
+      <div class="cmd-row"><span class="cmd-label">Actualizar</span><span class="cmd-code">./elgatomenu update</span></div>
+      <div class="cmd-row"><span class="cmd-label">Crear cuenta admin</span><span class="cmd-code">./elgatomenu add-owner</span></div>
     </div>
   </section>
 
 </div>
 
 <footer>
-  <div class="footer-brand"><span class="brand-icon">🍽️</span><span>MishiMenu</span></div>
+  <div class="footer-brand"><span class="brand-icon">🍽️</span><span>ElGatoMenu</span></div>
   <p>Sistema de pedidos con QR para restaurantes</p>
   <nav>
-    <a href="https://github.com/mnavas/mishimenu">GitHub</a>
+    <a href="https://github.com/mnavas/elgatomenu">GitHub</a>
     <a href="install.html">Instalación</a>
     <a href="daily-use.html">Uso diario</a>
     <a href="admin.html">Administración</a>
     <a href="menu-management.html">Menú y precios</a>
     <a href="examples.html">Ejemplos</a>
     <a href="../index.html#services">Servicios</a>
-    <a href="https://github.com/mnavas/mishimenu/issues">Reportar problema</a>
+    <a href="https://github.com/mnavas/elgatomenu/issues">Reportar problema</a>
   </nav>
 </footer>
 

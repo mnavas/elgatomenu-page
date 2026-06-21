@@ -1,15 +1,15 @@
 #!/usr/bin/env python3
 """
-MishiMenu — Ejemplo: Picantería La Sierra Encantada
+ElGatoMenu — Ejemplo: Picantería La Sierra Encantada
 Carga una carta típica de comida serrana andina ecuatoriana.
 
 Uso:
     python load_andes.py
 
 Variables de entorno opcionales:
-    MISHIMENU_HOST   — IP y puerto de MishiMenu (default: http://localhost:3000)
-    MISHIMENU_EMAIL  — correo del administrador
-    MISHIMENU_PASS   — contraseña del administrador
+    ELGATOMENU_HOST   — IP y puerto de ElGatoMenu (default: http://localhost:3000)
+    ELGATOMENU_EMAIL  — correo del administrador
+    ELGATOMENU_PASS   — contraseña del administrador
 """
 
 import os
@@ -21,9 +21,9 @@ import urllib.error
 
 # ── Configuración ────────────────────────────────────────────────────────────
 
-BASE  = os.environ.get("MISHIMENU_HOST", "http://localhost:3000").rstrip("/")
-EMAIL = os.environ.get("MISHIMENU_EMAIL", "")
-PASS  = os.environ.get("MISHIMENU_PASS", "")
+BASE  = os.environ.get("ELGATOMENU_HOST", "http://localhost:3000").rstrip("/")
+EMAIL = os.environ.get("ELGATOMENU_EMAIL", "")
+PASS  = os.environ.get("ELGATOMENU_PASS", "")
 
 # ── Carta del restaurante ────────────────────────────────────────────────────
 
@@ -130,7 +130,7 @@ def create_item(category_id, name, price, description, emoji, token):
 def main():
     global EMAIL, PASS
 
-    print(f"\n🏔️  MishiMenu — Cargando carta: {RESTAURANT_NAME}")
+    print(f"\n🏔️  ElGatoMenu — Cargando carta: {RESTAURANT_NAME}")
     print(f"    Servidor: {BASE}\n")
 
     if not EMAIL:

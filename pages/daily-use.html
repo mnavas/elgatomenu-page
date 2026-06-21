@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Uso diario — MishiMenu</title>
-  <meta name="description" content="Todo lo que necesitas para operar MishiMenu durante un día normal de servicio. Dashboard, verificación de pagos, cocina y más." />
+  <title>Uso diario — ElGatoMenu</title>
+  <meta name="description" content="Todo lo que necesitas para operar ElGatoMenu durante un día normal de servicio. Dashboard, verificación de pagos, cocina y más." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
@@ -91,7 +91,7 @@
 
 <nav>
   <div class="nav-inner">
-    <a href="../index.html" class="nav-brand"><span class="brand-icon">🍽️</span><span>MishiMenu</span></a>
+    <a href="../index.html" class="nav-brand"><span class="brand-icon">🍽️</span><span>ElGatoMenu</span></a>
     <div class="nav-links">
       <a href="../index.html#features">Funciones</a>
       <a href="install.html">Instalación</a>
@@ -99,7 +99,7 @@
       <a href="admin.html">Administración</a>
       <a href="menu-management.html">Menú y precios</a>
       <a href="examples.html">Ejemplos</a>
-      <a href="https://github.com/mnavas/mishimenu" target="_blank" class="btn btn-primary">Comenzar</a>
+      <a href="https://github.com/mnavas/elgatomenu" target="_blank" class="btn btn-primary">Comenzar</a>
     </div>
     <button class="nav-hamburger" id="nav-toggle" aria-label="Abrir menú" onclick="toggleNav()"><span></span><span></span><span></span></button>
   </div>
@@ -110,14 +110,14 @@
     <a href="admin.html">Administración</a>
     <a href="menu-management.html">Menú y precios</a>
     <a href="examples.html">Ejemplos</a>
-    <a href="https://github.com/mnavas/mishimenu" target="_blank" class="btn btn-primary">Comenzar</a>
+    <a href="https://github.com/mnavas/elgatomenu" target="_blank" class="btn btn-primary">Comenzar</a>
   </div>
 </nav>
 
 <div class="page-header">
   <div class="badge">🍽️ Uso diario</div>
-  <h1>Un día de servicio con MishiMenu</h1>
-  <p>Todo lo que necesitas saber para operar MishiMenu durante el servicio — sin necesidad de conocimientos técnicos.</p>
+  <h1>Un día de servicio con ElGatoMenu</h1>
+  <p>Todo lo que necesitas saber para operar ElGatoMenu durante el servicio — sin necesidad de conocimientos técnicos.</p>
 </div>
 
 <div class="toc-bar">
@@ -137,10 +137,10 @@
 
   <section class="doc-section" id="start">
     <h2>Inicio del día</h2>
-    <p>MishiMenu arranca automáticamente cuando enciende la computadora. No necesitas ejecutar ningún comando.</p>
+    <p>ElGatoMenu arranca automáticamente cuando enciende la computadora. No necesitas ejecutar ningún comando.</p>
     <p>Abre el dashboard en cualquier dispositivo de la red:</p>
     <div class="code-wrap"><pre>http://{tu-ip}:3000/dashboard</pre></div>
-    <p style="margin-top:0.75rem;">Si la página no carga, ejecuta <code>./mishimenu start</code> en la terminal. Consulta la guía de <a href="admin.html" style="color:var(--green);">Administración</a> si necesitas resolver problemas.</p>
+    <p style="margin-top:0.75rem;">Si la página no carga, ejecuta <code>./elgatomenu start</code> en la terminal. Consulta la guía de <a href="admin.html" style="color:var(--green);">Administración</a> si necesitas resolver problemas.</p>
   </section>
 
   <hr class="divider" />
@@ -151,7 +151,7 @@
       <div class="flow-item"><span class="fi-icon">1️⃣</span><span class="fi-body"><strong>El cliente escanea el QR en la mesa.</strong> Accede a la carta con el nombre de tu restaurante, categorías, platos con fotos, descripciones y precios.</span></div>
       <div class="flow-item"><span class="fi-icon">2️⃣</span><span class="fi-body"><strong>El cliente arma su pedido.</strong> Toca <strong>+</strong> en cada plato, ajusta cantidades, y toca <strong>Ver pedido</strong> (botón verde en la parte inferior) para revisar.</span></div>
       <div class="flow-item"><span class="fi-icon">3️⃣</span><span class="fi-body"><strong>El cliente confirma el pedido.</strong> Elige mesa o para llevar, número de mesa (si es en sitio) y método de pago. El total mostrado incluye todos los impuestos y cargos.</span></div>
-      <div class="flow-item"><span class="fi-icon">4️⃣</span><span class="fi-body"><strong>Pago digital (DeUna, Sipi, Transferencia).</strong> El cliente ve el monto exacto (copiado al portapapeles automáticamente), el QR o datos de cuenta y un temporizador de 15 minutos. Completa el pago en su app, toma un screenshot y lo sube a MishiMenu.</span></div>
+      <div class="flow-item"><span class="fi-icon">4️⃣</span><span class="fi-body"><strong>Pago digital (DeUna, Sipi, Transferencia).</strong> El cliente ve el monto exacto (copiado al portapapeles automáticamente), el QR o datos de cuenta y un temporizador de 15 minutos. Completa el pago en su app, toma un screenshot y lo sube a ElGatoMenu.</span></div>
       <div class="flow-item"><span class="fi-icon">5️⃣</span><span class="fi-body"><strong>Pago en efectivo o tarjeta.</strong> No necesita subir nada. El pedido aparece en tu dashboard de inmediato y el cliente se acerca a la caja a pagar.</span></div>
       <div class="flow-item"><span class="fi-icon">6️⃣</span><span class="fi-body"><strong>Seguimiento en vivo.</strong> El cliente ve el estado en tiempo real: Pendiente → Verificado → En cocina. La pantalla se actualiza automáticamente cuando verificas el pago.</span></div>
     </div>
@@ -264,7 +264,7 @@
 
   <section class="doc-section" id="fraud">
     <h2>Detección de fraude</h2>
-    <p>MishiMenu revisa automáticamente cada comprobante subido en busca de dos tipos de fraude:</p>
+    <p>ElGatoMenu revisa automáticamente cada comprobante subido en busca de dos tipos de fraude:</p>
 
     <h3>1. Mismo comprobante subido dos veces</h3>
     <p>El sistema calcula una huella digital de cada imagen. Si se sube el mismo archivo en una segunda orden, esa orden queda marcada como alerta.</p>
@@ -291,7 +291,7 @@
     <h2>Tareas de cierre</h2>
     <div class="flow-list">
       <div class="flow-item"><span class="fi-icon">1️⃣</span><span class="fi-body"><strong>Revisa la barra de estadísticas</strong> — "Cobrado hoy" muestra el total de órdenes verificadas del día.</span></div>
-      <div class="flow-item"><span class="fi-icon">2️⃣</span><span class="fi-body"><strong>Haz backup de la base de datos:</strong><br><code style="font-size:0.8rem;">./mishimenu backup</code><br>Guarda un archivo en la carpeta <code>backups/</code>. Hazlo cada día antes de cerrar.</span></div>
+      <div class="flow-item"><span class="fi-icon">2️⃣</span><span class="fi-body"><strong>Haz backup de la base de datos:</strong><br><code style="font-size:0.8rem;">./elgatomenu backup</code><br>Guarda un archivo en la carpeta <code>backups/</code>. Hazlo cada día antes de cerrar.</span></div>
       <div class="flow-item"><span class="fi-icon">3️⃣</span><span class="fi-body"><strong>Oculta los platos agotados</strong> si no quieres que aparezcan al día siguiente, o déjalos hasta que se reabastezcan.</span></div>
     </div>
   </section>
@@ -318,17 +318,17 @@
 </div>
 
 <footer>
-  <div class="footer-brand"><span class="brand-icon">🍽️</span><span>MishiMenu</span></div>
+  <div class="footer-brand"><span class="brand-icon">🍽️</span><span>ElGatoMenu</span></div>
   <p>Sistema de pedidos con QR para restaurantes</p>
   <nav>
-    <a href="https://github.com/mnavas/mishimenu">GitHub</a>
+    <a href="https://github.com/mnavas/elgatomenu">GitHub</a>
     <a href="install.html">Instalación</a>
     <a href="daily-use.html">Uso diario</a>
     <a href="admin.html">Administración</a>
     <a href="menu-management.html">Menú y precios</a>
     <a href="examples.html">Ejemplos</a>
     <a href="../index.html#services">Servicios</a>
-    <a href="https://github.com/mnavas/mishimenu/issues">Reportar problema</a>
+    <a href="https://github.com/mnavas/elgatomenu/issues">Reportar problema</a>
   </nav>
 </footer>
 

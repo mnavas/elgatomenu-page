@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Administración — MishiMenu</title>
-  <meta name="description" content="Gestión del equipo, backups, actualizaciones y solución de problemas en MishiMenu." />
+  <title>Administración — ElGatoMenu</title>
+  <meta name="description" content="Gestión del equipo, backups, actualizaciones y solución de problemas en ElGatoMenu." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
@@ -102,7 +102,7 @@
 
 <nav>
   <div class="nav-inner">
-    <a href="../index.html" class="nav-brand"><span class="brand-icon">🍽️</span><span>MishiMenu</span></a>
+    <a href="../index.html" class="nav-brand"><span class="brand-icon">🍽️</span><span>ElGatoMenu</span></a>
     <div class="nav-links">
       <a href="../index.html#features">Funciones</a>
       <a href="install.html">Instalación</a>
@@ -110,7 +110,7 @@
       <a href="admin.html" class="active">Administración</a>
       <a href="menu-management.html">Menú y precios</a>
       <a href="examples.html">Ejemplos</a>
-      <a href="https://github.com/mnavas/mishimenu" target="_blank" class="btn btn-primary">Comenzar</a>
+      <a href="https://github.com/mnavas/elgatomenu" target="_blank" class="btn btn-primary">Comenzar</a>
     </div>
     <button class="nav-hamburger" id="nav-toggle" aria-label="Abrir menú" onclick="toggleNav()"><span></span><span></span><span></span></button>
   </div>
@@ -121,14 +121,14 @@
     <a href="admin.html" class="active">Administración</a>
     <a href="menu-management.html">Menú y precios</a>
     <a href="examples.html">Ejemplos</a>
-    <a href="https://github.com/mnavas/mishimenu" target="_blank" class="btn btn-primary">Comenzar</a>
+    <a href="https://github.com/mnavas/elgatomenu" target="_blank" class="btn btn-primary">Comenzar</a>
   </div>
 </nav>
 
 <div class="page-header">
   <div class="badge">🍽️ Administración</div>
   <h1>Gestión, backups y mantenimiento</h1>
-  <p>Cómo manejar tu equipo, mantener los datos seguros, actualizar MishiMenu y resolver los problemas más comunes.</p>
+  <p>Cómo manejar tu equipo, mantener los datos seguros, actualizar ElGatoMenu y resolver los problemas más comunes.</p>
 </div>
 
 <div class="toc-bar">
@@ -146,22 +146,22 @@
 
   <section class="doc-section" id="cli">
     <h2>Referencia rápida de comandos</h2>
-    <p>Ejecuta estos comandos desde la carpeta <code>mishimenu</code>. En Windows usa <code>mishimenu</code> sin el <code>./</code>.</p>
+    <p>Ejecuta estos comandos desde la carpeta <code>elgatomenu</code>. En Windows usa <code>elgatomenu</code> sin el <code>./</code>.</p>
     <div class="quick-ref">
       <h3>Todos los comandos</h3>
-      <div class="cmd-row"><span class="cmd-label">Iniciar</span><span class="cmd-code">./mishimenu start</span></div>
-      <div class="cmd-row"><span class="cmd-label">Detener</span><span class="cmd-code">./mishimenu stop</span></div>
-      <div class="cmd-row"><span class="cmd-label">Reiniciar</span><span class="cmd-code">./mishimenu restart</span></div>
-      <div class="cmd-row"><span class="cmd-label">Ver estado</span><span class="cmd-code">./mishimenu status</span></div>
-      <div class="cmd-row"><span class="cmd-label">Logs en vivo</span><span class="cmd-code">./mishimenu logs</span></div>
-      <div class="cmd-row"><span class="cmd-label">Logs de la app</span><span class="cmd-code">./mishimenu logs mishimenu</span></div>
-      <div class="cmd-row"><span class="cmd-label">Logs de base de datos</span><span class="cmd-code">./mishimenu logs db</span></div>
-      <div class="cmd-row"><span class="cmd-label">Ver URLs de red</span><span class="cmd-code">./mishimenu hostname</span></div>
-      <div class="cmd-row"><span class="cmd-label">Hacer backup</span><span class="cmd-code">./mishimenu backup</span></div>
-      <div class="cmd-row"><span class="cmd-label">Restaurar backup</span><span class="cmd-code">./mishimenu restore backups/archivo.sql</span></div>
-      <div class="cmd-row"><span class="cmd-label">Actualizar</span><span class="cmd-code">./mishimenu update</span></div>
-      <div class="cmd-row"><span class="cmd-label">Crear cuenta admin</span><span class="cmd-code">./mishimenu add-owner</span></div>
-      <div class="cmd-row"><span class="cmd-label">Ver ayuda</span><span class="cmd-code">./mishimenu help</span></div>
+      <div class="cmd-row"><span class="cmd-label">Iniciar</span><span class="cmd-code">./elgatomenu start</span></div>
+      <div class="cmd-row"><span class="cmd-label">Detener</span><span class="cmd-code">./elgatomenu stop</span></div>
+      <div class="cmd-row"><span class="cmd-label">Reiniciar</span><span class="cmd-code">./elgatomenu restart</span></div>
+      <div class="cmd-row"><span class="cmd-label">Ver estado</span><span class="cmd-code">./elgatomenu status</span></div>
+      <div class="cmd-row"><span class="cmd-label">Logs en vivo</span><span class="cmd-code">./elgatomenu logs</span></div>
+      <div class="cmd-row"><span class="cmd-label">Logs de la app</span><span class="cmd-code">./elgatomenu logs elgatomenu</span></div>
+      <div class="cmd-row"><span class="cmd-label">Logs de base de datos</span><span class="cmd-code">./elgatomenu logs db</span></div>
+      <div class="cmd-row"><span class="cmd-label">Ver URLs de red</span><span class="cmd-code">./elgatomenu hostname</span></div>
+      <div class="cmd-row"><span class="cmd-label">Hacer backup</span><span class="cmd-code">./elgatomenu backup</span></div>
+      <div class="cmd-row"><span class="cmd-label">Restaurar backup</span><span class="cmd-code">./elgatomenu restore backups/archivo.sql</span></div>
+      <div class="cmd-row"><span class="cmd-label">Actualizar</span><span class="cmd-code">./elgatomenu update</span></div>
+      <div class="cmd-row"><span class="cmd-label">Crear cuenta admin</span><span class="cmd-code">./elgatomenu add-owner</span></div>
+      <div class="cmd-row"><span class="cmd-label">Ver ayuda</span><span class="cmd-code">./elgatomenu help</span></div>
     </div>
   </section>
 
@@ -169,7 +169,7 @@
 
   <section class="doc-section" id="staff">
     <h2>Gestión del equipo</h2>
-    <p>Crea cuentas individuales para tu personal y controla exactamente a qué partes de MishiMenu pueden acceder.</p>
+    <p>Crea cuentas individuales para tu personal y controla exactamente a qué partes de ElGatoMenu pueden acceder.</p>
 
     <h3>Roles de usuario</h3>
     <p>Cada miembro del equipo puede tener cualquier combinación de tres roles:</p>
@@ -230,7 +230,7 @@
 
     <h3>Crear una cuenta admin adicional</h3>
     <p>Usa el CLI:</p>
-    <div class="code-wrap"><pre><span class="kw">./mishimenu</span> add-owner</pre></div>
+    <div class="code-wrap"><pre><span class="kw">./elgatomenu</span> add-owner</pre></div>
     <p style="margin-top:0.5rem;">Se te pedirá un correo y contraseña (ingresada dos veces para confirmar).</p>
   </section>
 
@@ -240,15 +240,15 @@
     <h2>Backup y restauración</h2>
 
     <h3>Crear un backup</h3>
-    <div class="code-wrap"><pre><span class="kw">./mishimenu</span> backup</pre></div>
-    <p style="margin-top:0.5rem;">Guarda un archivo como <code>backups/mishimenu_db_20260516_093000.sql</code> en la carpeta del proyecto.</p>
+    <div class="code-wrap"><pre><span class="kw">./elgatomenu</span> backup</pre></div>
+    <p style="margin-top:0.5rem;">Guarda un archivo como <code>backups/elgatomenu_db_20260516_093000.sql</code> en la carpeta del proyecto.</p>
     <p>El backup incluye: categorías y platos, órdenes e historial de pagos, configuración del restaurante y cuentas de administrador.</p>
     <p><strong>No incluye</strong> imágenes de comprobantes ni fotos de platos (están en volúmenes Docker).</p>
 
     <h3>Frecuencia recomendada</h3>
     <ul style="margin-left:1.5rem;font-size:0.9rem;color:var(--gray-600);line-height:2;">
       <li><strong>Diariamente</strong> — al final de cada jornada</li>
-      <li><strong>Antes de cada actualización</strong> — siempre haz backup antes de <code>./mishimenu update</code></li>
+      <li><strong>Antes de cada actualización</strong> — siempre haz backup antes de <code>./elgatomenu update</code></li>
       <li><strong>Después de cambios grandes en la carta</strong> — cuando reestructures el menú significativamente</li>
     </ul>
 
@@ -261,21 +261,21 @@
     </ul>
 
     <h3>Restaurar desde backup</h3>
-    <div class="code-wrap"><pre><span class="kw">./mishimenu</span> restore backups/mishimenu_db_20260516_093000.sql</pre></div>
+    <div class="code-wrap"><pre><span class="kw">./elgatomenu</span> restore backups/elgatomenu_db_20260516_093000.sql</pre></div>
     <div class="callout callout-danger" style="margin-top:0.75rem;">
       <span class="callout-icon">⚠️</span>
       <span><strong>Advertencia:</strong> esto sobreescribe la base de datos actual. Todos los cambios desde el backup se perderán. El sistema pedirá confirmación antes de proceder.</span>
     </div>
     <p style="margin-top:0.75rem;">Después de restaurar, reinicia:</p>
-    <div class="code-wrap"><pre><span class="kw">./mishimenu</span> restart</pre></div>
+    <div class="code-wrap"><pre><span class="kw">./elgatomenu</span> restart</pre></div>
   </section>
 
   <hr class="divider" />
 
   <section class="doc-section" id="update">
-    <h2>Actualizar MishiMenu</h2>
-    <div class="code-wrap"><pre><span class="kw">./mishimenu</span> backup
-<span class="kw">./mishimenu</span> update</pre></div>
+    <h2>Actualizar ElGatoMenu</h2>
+    <div class="code-wrap"><pre><span class="kw">./elgatomenu</span> backup
+<span class="kw">./elgatomenu</span> update</pre></div>
     <p style="margin-top:0.75rem;">Siempre haz backup primero. El comando de actualización:</p>
     <ol class="steps-list">
       <li>Descarga la versión más reciente desde GitHub</li>
@@ -295,7 +295,7 @@
     <table class="border-table">
       <thead><tr><th>Puerto</th><th>Servicio</th><th>Quién accede</th></tr></thead>
       <tbody>
-        <tr><td>3000</td><td>App MishiMenu</td><td>Clientes y personal — comparte esta URL</td></tr>
+        <tr><td>3000</td><td>App ElGatoMenu</td><td>Clientes y personal — comparte esta URL</td></tr>
         <tr><td>3001</td><td>Supabase Studio</td><td>Solo tú — NO compartas públicamente</td></tr>
         <tr><td>8000</td><td>API Supabase</td><td>Uso interno de la app</td></tr>
       </tbody>
@@ -310,7 +310,7 @@
     </div>
 
     <h3>El archivo .env</h3>
-    <p>El archivo <code>.env</code> en la carpeta <code>mishimenu</code> contiene todos los secretos: contraseña de base de datos, claves de firma y tokens internos. Nunca lo compartas. Si queda expuesto, ejecuta <code>./mishimenu install</code> en una copia limpia para generar nuevos secretos (esto resetea la base de datos — haz backup primero).</p>
+    <p>El archivo <code>.env</code> en la carpeta <code>elgatomenu</code> contiene todos los secretos: contraseña de base de datos, claves de firma y tokens internos. Nunca lo compartas. Si queda expuesto, ejecuta <code>./elgatomenu install</code> en una copia limpia para generar nuevos secretos (esto resetea la base de datos — haz backup primero).</p>
   </section>
 
   <hr class="divider" />
@@ -321,17 +321,17 @@
     <div class="ts-section">
       <h4>La app no carga</h4>
       <p>Verifica el estado de los contenedores:</p>
-      <div class="code-wrap"><pre><span class="kw">./mishimenu</span> status</pre></div>
+      <div class="code-wrap"><pre><span class="kw">./elgatomenu</span> status</pre></div>
       <p style="margin-top:0.5rem;">Todos los servicios deben mostrar <code>Up</code>. Si alguno muestra <code>Restarting</code> o <code>Exited</code>:</p>
-      <div class="code-wrap"><pre><span class="kw">./mishimenu</span> logs       <span class="cm"># ver qué está fallando</span>
-<span class="kw">./mishimenu</span> restart    <span class="cm"># intentar reiniciar</span></pre></div>
+      <div class="code-wrap"><pre><span class="kw">./elgatomenu</span> logs       <span class="cm"># ver qué está fallando</span>
+<span class="kw">./elgatomenu</span> restart    <span class="cm"># intentar reiniciar</span></pre></div>
     </div>
 
     <div class="ts-section" style="margin-top:1rem;">
       <h4>Los clientes no pueden acceder desde sus celulares</h4>
       <ol class="steps-list">
-        <li>Confirma que MishiMenu está corriendo (<code>./mishimenu status</code>)</li>
-        <li>Ejecuta <code>./mishimenu hostname</code> — verifica la IP</li>
+        <li>Confirma que ElGatoMenu está corriendo (<code>./elgatomenu status</code>)</li>
+        <li>Ejecuta <code>./elgatomenu hostname</code> — verifica la IP</li>
         <li>Confirma que el celular del cliente está en el <strong>mismo WiFi</strong> que la computadora del servidor</li>
         <li>Intenta abrir la URL desde la computadora del servidor — si funciona ahí pero no en celulares, es un problema de red</li>
         <li>Verifica si el router bloquea el tráfico entre dispositivos ("AP isolation" o "client isolation") — desactívalo si es el caso</li>
@@ -341,13 +341,13 @@
     <div class="ts-section" style="margin-top:1rem;">
       <h4>Error "Restaurante no configurado"</h4>
       <p>Falta el registro del restaurante en la base de datos. Ejecuta:</p>
-      <div class="code-wrap"><pre><span class="kw">./mishimenu</span> seed</pre></div>
+      <div class="code-wrap"><pre><span class="kw">./elgatomenu</span> seed</pre></div>
     </div>
 
     <div class="ts-section" style="margin-top:1rem;">
       <h4>Las órdenes no aparecen en tiempo real</h4>
       <ol class="steps-list">
-        <li>Verifica que el contenedor <code>realtime</code> está corriendo: <code>./mishimenu status</code></li>
+        <li>Verifica que el contenedor <code>realtime</code> está corriendo: <code>./elgatomenu status</code></li>
         <li>Si muestra <code>Restarting</code>, reinícialo: <code>docker compose restart realtime</code></li>
       </ol>
     </div>
@@ -364,8 +364,8 @@
 
     <div class="ts-section" style="margin-top:1rem;">
       <h4>Después de un corte de luz</h4>
-      <p>MishiMenu reinicia automáticamente. Espera unos 2 minutos después de que vuelva la luz. Si no responde:</p>
-      <div class="code-wrap"><pre><span class="kw">./mishimenu</span> start</pre></div>
+      <p>ElGatoMenu reinicia automáticamente. Espera unos 2 minutos después de que vuelva la luz. Si no responde:</p>
+      <div class="code-wrap"><pre><span class="kw">./elgatomenu</span> start</pre></div>
       <p style="margin-top:0.5rem;">Los pedidos en la base de datos se conservan. Los pedidos que se estaban realizando exactamente en el momento del corte podrían perderse.</p>
     </div>
 
@@ -380,17 +380,17 @@
 </div>
 
 <footer>
-  <div class="footer-brand"><span class="brand-icon">🍽️</span><span>MishiMenu</span></div>
+  <div class="footer-brand"><span class="brand-icon">🍽️</span><span>ElGatoMenu</span></div>
   <p>Sistema de pedidos con QR para restaurantes</p>
   <nav>
-    <a href="https://github.com/mnavas/mishimenu">GitHub</a>
+    <a href="https://github.com/mnavas/elgatomenu">GitHub</a>
     <a href="install.html">Instalación</a>
     <a href="daily-use.html">Uso diario</a>
     <a href="admin.html">Administración</a>
     <a href="menu-management.html">Menú y precios</a>
     <a href="examples.html">Ejemplos</a>
     <a href="../index.html#services">Servicios</a>
-    <a href="https://github.com/mnavas/mishimenu/issues">Reportar problema</a>
+    <a href="https://github.com/mnavas/elgatomenu/issues">Reportar problema</a>
   </nav>
 </footer>
 
